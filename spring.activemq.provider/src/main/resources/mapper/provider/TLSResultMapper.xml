@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzp.provider.mapper.TLSResultMapper">
+
+    <resultMap id="lsResult" type="com.zzp.provider.entity.TLSResult">
+        <id column="id" property="id" />
+        <result column="l_id" property="lId" />
+        <result column="s_ids" property="sIds" />
+    </resultMap>
+
+    <select id="listSIds" resultMap="lsResult">
+        SELECT
+        GROUP_CONCAT(t.ID) AS s_ids
+        FROM t_quote_supplier_transport AS t
+        WHERE
+        <!-- 填写新公司的UID -->
+        t.INQUIRER_COMPANY_UID = #{inquirerCompanyUid}
+        AND FIND_IN_SET(t.OLD_ID, #{quoteSupplierTransportIdArray}) &gt; 0
+    </select>
+
+</mapper>

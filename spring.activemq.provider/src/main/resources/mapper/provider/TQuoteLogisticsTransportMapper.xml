@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzp.provider.mapper.TQuoteLogisticsTransportMapper">
+
+    <resultMap id="quoteLogisticsTransport" type="com.zzp.provider.entity.TQuoteLogisticsTransport">
+        <id column="id" property="id" />
+        <result column="QUOTE_SUPPLIER_TRANSPORT_ID_ARRAY" property="quoteSupplierTransportIdArray" />
+    </resultMap>
+
+    <select id="listQuoteLogisticsTransports" resultMap="quoteLogisticsTransport">
+        SELECT
+		t.ID,
+		t.QUOTE_SUPPLIER_TRANSPORT_ID_ARRAY
+		FROM t_quote_logistics_transport AS t
+        <!-- 填写新公司的UID -->
+		WHERE t.QUOTER_COMPANY_CODE = #{quoterCompanyCode}
+		AND t.QUOTE_SUPPLIER_TRANSPORT_ID_ARRAY IS NOT NULL AND t.QUOTE_SUPPLIER_TRANSPORT_ID_ARRAY != ''
+    </select>
+
+</mapper>
