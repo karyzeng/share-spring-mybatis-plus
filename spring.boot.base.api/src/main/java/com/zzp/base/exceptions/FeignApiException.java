@@ -18,7 +18,7 @@ public class FeignApiException extends RuntimeException {
 
 
     public FeignApiException(String message) {
-        super(message);
+        super("FeignApiException:" + message);
     }
     
     public FeignApiException(Throwable cause) {
