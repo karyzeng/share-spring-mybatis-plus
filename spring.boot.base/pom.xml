@@ -16,6 +16,10 @@
         <freemarker.version>2.3.29</freemarker.version>
         <mybatis.plus.dynamic.datasource.version>2.5.7</mybatis.plus.dynamic.datasource.version>
         <druid.version>1.1.21</druid.version>
+        <fastjson.version>1.2.24</fastjson.version>
+        <commons.beanutils.version>1.9.3</commons.beanutils.version>
+        <commons.lang3.version>3.0</commons.lang3.version>
+        <zzp.util.version>0.0.1-SNAPSHOT</zzp.util.version>
     </properties>
 
     <build>
@@ -127,25 +131,25 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.24</version>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-            <version>1.9.3</version>
+            <version>${commons.beanutils.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.0</version>
+            <version>${commons.lang3.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.zzp</groupId>
             <artifactId>zzp.util</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${zzp.util.version}</version>
         </dependency>
     </dependencies>
 
