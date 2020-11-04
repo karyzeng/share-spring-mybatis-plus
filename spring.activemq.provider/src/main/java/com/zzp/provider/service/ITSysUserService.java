@@ -18,4 +18,6 @@ public interface ITSysUserService extends IService<TSysUser> {
      */
     void updateAllColumnById(TSysUser entity);
 
+    void saveSysUser(TSysUser sysUser);
+
 }
