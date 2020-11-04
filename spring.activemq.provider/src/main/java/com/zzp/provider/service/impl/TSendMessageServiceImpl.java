@@ -6,14 +6,17 @@ import com.zzp.base.enums.CommonJudgeEnum;
 import com.zzp.base.mq.msg.vo.Message;
 import com.zzp.base.transaction.callback.CallBackService;
 import com.zzp.provider.entity.TSendMessage;
+import com.zzp.provider.entity.TSysUser;
 import com.zzp.provider.mapper.TSendMessageMapper;
 import com.zzp.provider.service.IMessageService;
 import com.zzp.provider.service.ITSendMessageService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zzp.provider.service.ITSysUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
@@ -36,6 +39,9 @@ public class TSendMessageServiceImpl extends ServiceImpl<TSendMessageMapper, TSe
 
     @Autowired
     private CallBackService callBackService;
+
+    @Autowired
+    private ITSysUserService sysUserService;
 
     @Transactional
     @Override
@@ -86,4 +92,12 @@ public class TSendMessageServiceImpl extends ServiceImpl<TSendMessageMapper, TSe
             logger.error("sendMqAndUpdateSendFlag更新消息状态出现异常，msgId：" + sendMessage.getMsgId() + "，sendMessage：" + JSON.toJSONString(sendMessage));
         }
     }
+
+    @Override
+    @Transactional(propagation = Propagation.NESTED)
+    public void saveSendMessage(TSendMessage sendMessage) {
+        this.save(sendMessage);
+        throw new RuntimeException("测试异常");
+    }
+
 }
