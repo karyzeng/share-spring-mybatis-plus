@@ -66,4 +66,11 @@ public class ProviderController {
         return "关联成功，记录数为：" + total;
     }
 
+    @RequestMapping(value = "/testTransactional", method = RequestMethod.GET)
+    @ResponseBody
+    public String testTransactional() {
+        messageService.testTransactional();
+        return "测试成功";
+    }
+
 }
