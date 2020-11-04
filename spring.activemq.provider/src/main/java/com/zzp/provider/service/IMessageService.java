@@ -11,4 +11,9 @@ public interface IMessageService {
 
     void sendMessage(String msg);
 
+    /**
+     * 测试事务
+     */
+    void testTransactional();
+
 }
