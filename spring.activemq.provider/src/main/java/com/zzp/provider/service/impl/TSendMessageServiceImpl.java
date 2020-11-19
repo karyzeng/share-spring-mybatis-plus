@@ -94,7 +94,7 @@ public class TSendMessageServiceImpl extends ServiceImpl<TSendMessageMapper, TSe
     }
 
     @Override
-    @Transactional(propagation = Propagation.NESTED)
+    @Transactional(propagation = Propagation.REQUIRED)
     public void saveSendMessage(TSendMessage sendMessage) {
         this.save(sendMessage);
         throw new RuntimeException("测试异常");
