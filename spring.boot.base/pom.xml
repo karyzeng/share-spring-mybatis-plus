@@ -9,7 +9,7 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-        <spring.boot.version>2.1.6.RELEASE</spring.boot.version>
+        <spring.boot.version>2.1.7.RELEASE</spring.boot.version>
         <mysql.connector.version>5.1.46</mysql.connector.version>
         <mybatis.plus.version>3.2.0</mybatis.plus.version>
         <!-- mybatis-plus的代码生成器模板版本 -->
