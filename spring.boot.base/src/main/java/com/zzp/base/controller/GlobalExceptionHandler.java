@@ -1,5 +1,6 @@
 package com.zzp.base.controller;
 
+import com.baomidou.mybatisplus.extension.exceptions.ApiException;
 import com.zzp.base.exceptions.FeignApiException;
 import com.zzp.base.results.Result;
 import org.slf4j.Logger;
@@ -130,6 +131,12 @@ public class GlobalExceptionHandler {
         }
 
         return new Object[]{};
+    }
+
+    @ExceptionHandler(value = ApiException.class)
+    @ResponseBody
+    public Object handleApiException(HttpServletRequest request, HttpServletResponse response, ApiException e) {
+        return Result.failed(e.getMessage());
     }
 
 }
